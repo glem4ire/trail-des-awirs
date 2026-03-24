@@ -1,0 +1,466 @@
+:root {
+  --vert: #0f2d17;
+  --vert-mid: #1a4224;
+  --vert-clair: #2a5c34;
+  --creme: #f0e8d5;
+  --creme-fade: rgba(240,232,213,0.08);
+  --orange: #e8703a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--vert);
+  color: var(--creme);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* TOPO BACKGROUND PATTERN */
+.topo-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpath d='M300,50 Q450,100 500,200 Q550,300 480,400 Q420,480 300,500 Q180,520 100,430 Q20,350 50,200 Q80,80 300,50Z' fill='none' stroke='rgba(240,232,213,0.04)' stroke-width='1.5'/%3E%3Cpath d='M300,100 Q420,140 460,220 Q510,320 440,400 Q380,460 300,480 Q200,490 130,420 Q60,340 90,200 Q120,100 300,100Z' fill='none' stroke='rgba(240,232,213,0.04)' stroke-width='1.5'/%3E%3Cpath d='M300,150 Q390,180 430,250 Q470,330 410,400 Q360,450 300,460 Q220,465 160,400 Q100,335 130,250 Q160,160 300,150Z' fill='none' stroke='rgba(240,232,213,0.04)' stroke-width='1.5'/%3E%3Cpath d='M300,200 Q360,220 390,270 Q430,340 380,400 Q340,440 300,440 Q240,440 200,390 Q160,330 185,265 Q210,190 300,200Z' fill='none' stroke='rgba(240,232,213,0.04)' stroke-width='1.5'/%3E%3Cpath d='M300,250 Q340,265 360,300 Q390,350 350,395 Q320,425 300,425 Q265,425 240,392 Q210,350 230,295 Q250,245 300,250Z' fill='none' stroke='rgba(240,232,213,0.04)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 600px 600px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* ─── NAV — mobile first ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15,45,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--creme-fade);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--creme);
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  display: none;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--creme);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover { opacity: 1; }
+
+.nav-cta {
+  background: var(--orange) !important;
+  color: var(--vert) !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 4px;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: #d4622d !important; }
+
+.lang-toggle {
+  background: none;
+  border: 1px solid rgba(240,232,213,0.3);
+  color: var(--creme);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.lang-toggle:hover {
+  border-color: var(--creme);
+  color: var(--creme);
+}
+
+/* ─── HERO — mobile first ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.5rem 4rem;
+  overflow: hidden;
+}
+
+.hero .topo-bg { opacity: 1; }
+
+.hero-date {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 14vw, 13rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--creme);
+  margin-bottom: 1.5rem;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(240,232,213,0.6);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--vert);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: #d4622d; transform: translateY(-1px); }
+
+.btn-secondary {
+  color: var(--creme);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  border-bottom: 1px solid rgba(240,232,213,0.3);
+  padding-bottom: 2px;
+}
+
+.btn-secondary:hover { opacity: 1; }
+
+.hero-stats {
+  display: none;
+  position: absolute;
+  right: 3rem;
+  bottom: 5rem;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: right;
+}
+
+.hero-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--creme);
+}
+
+.hero-stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,232,213,0.45);
+  margin-top: 2px;
+}
+
+/* ─── SECTIONS — mobile first ─── */
+section {
+  position: relative;
+  padding: 5rem 1.5rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--creme);
+  margin-bottom: 3rem;
+}
+
+/* ─── PARCOURS ─── */
+#parcours { background: var(--vert-mid); }
+
+.parcours-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5px;
+  margin-top: 1px;
+}
+
+.parcours-card {
+  background: var(--vert);
+  padding: 3rem 2.5rem;
+  border: 1px solid rgba(240,232,213,0.07);
+  position: relative;
+  transition: background 0.25s;
+}
+
+.parcours-card:hover { background: var(--vert-clair); }
+
+.parcours-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6rem;
+  line-height: 1;
+  color: rgba(240,232,213,0.06);
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+}
+
+.parcours-distance {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: var(--creme);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.parcours-nom {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.parcours-desc {
+  font-size: 0.9rem;
+  color: rgba(240,232,213,0.55);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.parcours-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.parcours-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(240,232,213,0.07);
+  padding-top: 0.7rem;
+}
+
+.parcours-stat-label { color: rgba(240,232,213,0.4); letter-spacing: 0.08em; }
+.parcours-stat-val { color: var(--creme); font-weight: 600; }
+
+/* ─── HORAIRES ─── */
+#horaires { background: var(--vert); }
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.timeline::before { display: none; }
+
+.timeline-item {
+  flex: 1;
+  padding-top: 1.5rem;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-time {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: var(--creme);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-event {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240,232,213,0.45);
+  line-height: 1.5;
+}
+
+/* ─── INSCRIPTION CTA — mobile first ─── */
+#inscription {
+  background: var(--orange);
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+#inscription .section-title { color: var(--vert); margin-bottom: 0.5rem; }
+#inscription .section-label { color: rgba(15,45,23,0.6); }
+
+#inscription p {
+  font-size: 1rem;
+  color: rgba(15,45,23,0.7);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.btn-dark {
+  background: var(--vert);
+  color: var(--creme);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-dark:hover { background: #0a1f0f; transform: translateY(-1px); }
+
+/* ─── FOOTER — mobile first ─── */
+footer {
+  background: #070f09;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  border-top: 1px solid rgba(240,232,213,0.06);
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: rgba(240,232,213,0.4);
+}
+
+.footer-info {
+  font-size: 0.78rem;
+  color: rgba(240,232,213,0.25);
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ─── DESKTOP ─── */
+@media (min-width: 900px) {
+  nav { padding: 1.2rem 3rem; }
+  .nav-links { display: flex; }
+
+  .hero { padding: 0 3rem 5rem; }
+
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-stats { display: flex; }
+
+  section { padding: 7rem 3rem; }
+
+  .parcours-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .timeline {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .timeline::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 2.6rem;
+    left: 0; right: 0;
+    height: 1px;
+    background: rgba(240,232,213,0.12);
+  }
+
+  #inscription {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 3rem;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5rem 3rem;
+    text-align: left;
+  }
+
+  .footer-info { text-align: right; }
+}

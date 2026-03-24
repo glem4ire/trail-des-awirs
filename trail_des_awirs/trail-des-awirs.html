@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trail des Awirs 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Trail des Awirs</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
+      <li><a href="#horaires" data-i18n="nav.horaires">Horaires</a></li>
+      <li><a href="https://otopservices.be" target="_blank" class="nav-cta" data-i18n="nav.inscrire">S'inscrire</a></li>
+    </ul>
+    <button class="lang-toggle" onclick="toggleLang()" aria-label="Changer de langue">NL</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="topo-bg"></div>
+
+  <p class="hero-date" data-i18n="hero.date">22 Août 2026 — Commune de Flémalle</p>
+  <h1 class="hero-title">TRAIL<br>DES<br>AWIRS</h1>
+  <p class="hero-sub" data-i18n="hero.sub">Un trail accessible et authentique au cœur des sentiers vallonnés et techniques des Awirs. Trois parcours, une ambiance chaleureuse, bar et barbecue pour finir.</p>
+  <div class="hero-actions">
+    <a href="https://otopservices.be" target="_blank" class="btn-primary" data-i18n="hero.btn.primary">S'inscrire maintenant</a>
+    <a href="#parcours" class="btn-secondary" data-i18n="hero.btn.secondary">Voir les parcours</a>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">+200</div>
+      <div class="hero-stat-label" data-i18n="hero.stat.participants">Participants</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label" data-i18n="hero.stat.parcours">Parcours</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">21km</div>
+      <div class="hero-stat-label" data-i18n="hero.stat.distance">Max distance</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="topo-bg"></div>
+  <p class="section-label" data-i18n="parcours.label">Les parcours</p>
+  <h2 class="section-title" data-i18n="parcours.title">3 PARCOURS<br>POUR TOUS</h2>
+
+  <div class="parcours-grid">
+
+    <div class="parcours-card">
+      <div class="parcours-num">01</div>
+      <div class="parcours-distance">6 km</div>
+      <div class="parcours-nom" data-i18n="parcours.01.nom">Promenade · Débutant</div>
+      <p class="parcours-desc" data-i18n="parcours.01.desc">Un tracé simple et accessible, ouvert à tous y compris aux marcheurs et participants accompagnés de leur chien. Esprit convivial et familial.</p>
+      <div class="parcours-stats">
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
+          <span class="parcours-stat-val">144 m D+</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
+          <span class="parcours-stat-val">15h15</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parcours-card">
+      <div class="parcours-num">02</div>
+      <div class="parcours-distance">12 km</div>
+      <div class="parcours-nom" data-i18n="parcours.02.nom">Confirmé</div>
+      <p class="parcours-desc" data-i18n="parcours.02.desc">Un parcours vallonné avec un dénivelé marqué et quelques passages techniques. Idéal pour vivre une vraie expérience trail sur une distance stimulante.</p>
+      <div class="parcours-stats">
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
+          <span class="parcours-stat-val">220 m D+</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
+          <span class="parcours-stat-val">15h15</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parcours-card">
+      <div class="parcours-num">03</div>
+      <div class="parcours-distance">21 km</div>
+      <div class="parcours-nom" data-i18n="parcours.03.nom">Expert</div>
+      <p class="parcours-desc" data-i18n="parcours.03.desc">Un tracé long, technique et exigeant au cœur des reliefs des Awirs. Pour les coureurs en quête de dépassement sur des sentiers engagés et variés.</p>
+      <div class="parcours-stats">
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
+          <span class="parcours-stat-val">700 m D+</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
+          <span class="parcours-stat-val">15h00</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.ravitaillement">Ravitaillement</span>
+          <span class="parcours-stat-val" data-i18n="stat.ravitaillement.val">1 point</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section id="horaires">
+  <div class="topo-bg"></div>
+  <p class="section-label" data-i18n="horaires.label">Programme de la journée</p>
+  <h2 class="section-title" data-i18n="horaires.title">HORAIRES</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">13h00</div>
+      <div class="timeline-event" data-i18n="horaires.13h">Ouverture<br>des inscriptions</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">15h00</div>
+      <div class="timeline-event" data-i18n="horaires.15h">Départ<br>21 km</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">15h15</div>
+      <div class="timeline-event" data-i18n="horaires.15h15">Départ<br>12 km &amp; 6 km</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">17h30</div>
+      <div class="timeline-event" data-i18n="horaires.17h30">Remise<br>des prix</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION CTA -->
+<section id="inscription">
+  <div>
+    <p class="section-label" data-i18n="inscription.label">Rejoins l'aventure</p>
+    <h2 class="section-title" data-i18n="inscription.title">PRÊT·E<br>À COURIR&nbsp;?</h2>
+    <p data-i18n="inscription.text">Les inscriptions sont gérées par O'top Services. Pré-inscris-toi en ligne ou directement sur place dès 13h le jour de l'événement.</p>
+  </div>
+  <a href="https://otopservices.be" target="_blank" class="btn-dark" data-i18n="inscription.btn">S'inscrire sur O'top Services →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Trail des Awirs 2026</div>
+  <div class="footer-info" data-i18n="footer.info">
+    22 août 2026 · Cercle St Joseph &amp; Victor, Les Awirs<br>
+    Commune de Flémalle
+  </div>
+</footer>
+
+<script src="translations.js"></script>
+
+</body>
+</html>
