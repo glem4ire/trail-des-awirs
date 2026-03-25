@@ -14,6 +14,18 @@ var translations = {
     'hero.stat.parcours':     'Parcours',
     'hero.stat.distance':     'Max distance',
 
+    /* Onglets de visualisation GPX */
+    'viz.map':  'Carte',
+    'viz.elev': 'Profil',
+
+    /* Section équipe organisatrice */
+    'equipe.label':             "L'ORGANISATION",
+    'equipe.title':             'INKIPIT',
+    'equipe.desc':              "Bastian, Sébastien, Nicolas et Guillaume — quatre passionnés de trail qui ont décidé de faire découvrir les Awirs comme terrain de jeu. Une première édition lancée avec le cœur.",
+    'equipe.facebook':          'Suivez-nous sur Facebook',
+    'equipe.instagram':         'Suivez-nous sur Instagram',
+    'equipe.photo.placeholder': "Photo de l'équipe",
+
     /* Section parcours */
     'parcours.label':         'Les parcours',
     'parcours.title':         '3 PARCOURS<br>POUR TOUS',
@@ -65,6 +77,18 @@ var translations = {
     'hero.stat.participants': 'Deelnemers',
     'hero.stat.parcours':     'Parcours',
     'hero.stat.distance':     'Max afstand',
+
+    /* Onglets visualisatie GPX */
+    'viz.map':  'Kaart',
+    'viz.elev': 'Profiel',
+
+    /* Sectie organisatieteam */
+    'equipe.label':             'DE ORGANISATIE',
+    'equipe.title':             'INKIPIT',
+    'equipe.desc':              "Bastian, Sébastien, Nicolas en Guillaume — vier traillovers die de Awirs als speelterrein willen laten ontdekken. Een eerste editie vanuit het hart.",
+    'equipe.facebook':          'Volg ons op Facebook',
+    'equipe.instagram':         'Volg ons op Instagram',
+    'equipe.photo.placeholder': 'Foto van het team',
 
     /* Sectie parcours */
     'parcours.label':         'De parcours',

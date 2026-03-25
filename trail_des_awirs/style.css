@@ -232,6 +232,157 @@ section {
   margin-bottom: 3rem;
 }
 
+/* ─── ÉQUIPE — mobile first ─── */
+/* La section présente Inkipit avec une photo placeholder et un texte côte à côte */
+/* Même fond vert moyen que la section Parcours pour une continuité visuelle */
+#equipe { background: var(--vert-mid); }
+
+/* Sur mobile : photo au-dessus, texte en dessous (disposition en colonne) */
+.equipe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Bloc photo : prend toute la largeur sur mobile */
+.equipe-photo { width: 100%; }
+
+/* Placeholder visuel affiché tant que la vraie photo n'est pas encore fournie */
+/* Fond vert moyen pour rester dans le thème, texte indicatif centré */
+.equipe-photo-placeholder {
+  background: var(--vert-mid);
+  border: 1px solid rgba(240,232,213,0.07);
+  border-radius: 4px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,232,213,0.25);
+}
+
+/* Style préparé pour la vraie photo quand elle sera fournie */
+/* object-fit: cover = recadre l'image pour remplir le bloc sans la déformer */
+.equipe-photo img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Bloc texte : description, prénoms et boutons sociaux en colonne */
+.equipe-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Texte de présentation de l'équipe */
+.equipe-desc {
+  font-size: 1rem;
+  color: rgba(240,232,213,0.7);
+  line-height: 1.8;
+}
+
+/* Conteneur des boutons Facebook et Instagram */
+.equipe-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+/* Style des boutons réseaux sociaux : discrets, soulignés, similaires à btn-secondary */
+.btn-social {
+  color: var(--creme);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.6;
+  border-bottom: 1px solid rgba(240,232,213,0.3);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+/* Au survol : les boutons deviennent pleinement opaques */
+.btn-social:hover { opacity: 1; }
+
+/* ─── VISUALISATION GPX ─── */
+/* Ces styles gèrent la zone de carte/profil en haut de chaque carte parcours */
+
+/* Conteneur de la viz : marges négatives pour annuler le padding de la carte  */
+/* et ainsi faire s'étendre la viz jusqu'aux bords de la carte (bord à bord)  */
+.parcours-viz {
+  margin: -3rem -2.5rem 2.5rem;
+  overflow: hidden;
+}
+
+/* Barre des onglets "Carte" / "Profil" */
+.viz-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(240,232,213,0.07);
+}
+
+/* Style d'un onglet inactif */
+.viz-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;  /* soulignement caché par défaut */
+  margin-bottom: -1px;                   /* chevauche la bordure de .viz-tabs */
+  color: rgba(240,232,213,0.35);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+/* Onglet actif : texte orange + soulignement orange */
+.viz-tab--active {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+.viz-tab:hover:not(.viz-tab--active) {
+  color: rgba(240,232,213,0.65);
+}
+
+/* Container de la carte Leaflet : Leaflet EXIGE une hauteur explicite en CSS */
+.viz-map-container {
+  height: 200px;
+}
+
+/* Container du profil d'altitude SVG */
+.viz-elev-container {
+  background: var(--vert);
+  padding: 0.75rem 1.5rem 0.25rem;
+}
+
+/* Overrides Leaflet : adapte la carte au thème sombre du site */
+/* Leaflet ajoute ses propres styles, on les remplace au besoin */
+.viz-map-container .leaflet-container {
+  background: var(--vert-mid);  /* fond affiché pendant le chargement des tuiles */
+}
+
+.viz-map-container .leaflet-control-attribution {
+  background: rgba(15,45,23,0.75) !important;
+  color: rgba(240,232,213,0.4) !important;
+  font-size: 8px !important;
+}
+
+.viz-map-container .leaflet-control-attribution a {
+  color: rgba(240,232,213,0.55) !important;
+}
+
 /* ─── PARCOURS ─── */
 #parcours { background: var(--vert-mid); }
 
@@ -429,6 +580,23 @@ footer {
   .hero-stats { display: flex; }
 
   section { padding: 7rem 3rem; }
+
+  /* Équipe desktop : photo à gauche (40%), texte à droite (60%) */
+  .equipe-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  /* La photo prend 40% de la largeur sur desktop */
+  .equipe-photo { flex: 0 0 40%; }
+
+  /* Hauteur augmentée sur desktop pour la photo et le placeholder */
+  .equipe-photo-placeholder,
+  .equipe-photo img { height: 380px; }
+
+  /* Les boutons sociaux passent côte à côte sur desktop */
+  .equipe-socials { flex-direction: row; }
 
   .parcours-grid { grid-template-columns: repeat(3, 1fr); }
 

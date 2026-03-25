@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trail des Awirs 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- CSS de Leaflet : styles de la carte interactive (chargé depuis un CDN public) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -47,6 +49,7 @@
       <div class="hero-stat-label" data-i18n="hero.stat.distance">Max distance</div>
     </div>
   </div>
+
 </section>
 
 <!-- PARCOURS -->
@@ -58,6 +61,17 @@
   <div class="parcours-grid">
 
     <div class="parcours-card">
+      <!-- Visualisation GPX : carte (défaut) ou profil d'altitude -->
+      <div class="parcours-viz" data-parcours="0">
+        <div class="viz-tabs">
+          <button class="viz-tab viz-tab--active" data-viz="0" data-tab="map" data-i18n="viz.map">Carte</button>
+          <button class="viz-tab" data-viz="0" data-tab="elev" data-i18n="viz.elev">Profil</button>
+        </div>
+        <!-- La carte Leaflet sera injectée ici par gpx.js -->
+        <div id="viz-map-0" class="viz-map-container"></div>
+        <!-- Le profil SVG sera injecté ici à la demande -->
+        <div id="viz-elev-0" class="viz-elev-container"></div>
+      </div>
       <div class="parcours-num">01</div>
       <div class="parcours-distance">6 km</div>
       <div class="parcours-nom" data-i18n="parcours.01.nom">Promenade · Débutant</div>
@@ -75,6 +89,15 @@
     </div>
 
     <div class="parcours-card">
+      <!-- Visualisation GPX : carte (défaut) ou profil d'altitude -->
+      <div class="parcours-viz" data-parcours="1">
+        <div class="viz-tabs">
+          <button class="viz-tab viz-tab--active" data-viz="1" data-tab="map" data-i18n="viz.map">Carte</button>
+          <button class="viz-tab" data-viz="1" data-tab="elev" data-i18n="viz.elev">Profil</button>
+        </div>
+        <div id="viz-map-1" class="viz-map-container"></div>
+        <div id="viz-elev-1" class="viz-elev-container"></div>
+      </div>
       <div class="parcours-num">02</div>
       <div class="parcours-distance">12 km</div>
       <div class="parcours-nom" data-i18n="parcours.02.nom">Confirmé</div>
@@ -92,6 +115,15 @@
     </div>
 
     <div class="parcours-card">
+      <!-- Visualisation GPX : carte (défaut) ou profil d'altitude -->
+      <div class="parcours-viz" data-parcours="2">
+        <div class="viz-tabs">
+          <button class="viz-tab viz-tab--active" data-viz="2" data-tab="map" data-i18n="viz.map">Carte</button>
+          <button class="viz-tab" data-viz="2" data-tab="elev" data-i18n="viz.elev">Profil</button>
+        </div>
+        <div id="viz-map-2" class="viz-map-container"></div>
+        <div id="viz-elev-2" class="viz-elev-container"></div>
+      </div>
       <div class="parcours-num">03</div>
       <div class="parcours-distance">21 km</div>
       <div class="parcours-nom" data-i18n="parcours.03.nom">Expert</div>
@@ -145,6 +177,48 @@
   </div>
 </section>
 
+<!-- ÉQUIPE ORGANISATRICE -->
+<!-- Cette section présente l'équipe Inkipit et ses réseaux sociaux -->
+<section id="equipe">
+  <!-- Fond topographique SVG (même motif que les autres sections) -->
+  <div class="topo-bg"></div>
+
+  <!-- Label orange au-dessus du titre (petit texte indicatif) -->
+  <p class="section-label" data-i18n="equipe.label">L'ORGANISATION</p>
+
+  <!-- Titre principal de la section -->
+  <h2 class="section-title" data-i18n="equipe.title">INKIPIT</h2>
+
+  <!-- Contenu : photo à gauche, texte à droite sur desktop / empilé sur mobile -->
+  <div class="equipe-content">
+
+    <!-- BLOC PHOTO -->
+    <!-- ÉTAPE FUTURE : quand la photo est prête, déposer le fichier dans         -->
+    <!-- trail_des_awirs/img/equipe.jpg, puis remplacer le div.equipe-photo-placeholder -->
+    <!-- par : <img src="img/equipe.jpg" alt="L'équipe Inkipit">                  -->
+    <div class="equipe-photo">
+      <div class="equipe-photo-placeholder" data-i18n="equipe.photo.placeholder">
+        Photo de l'équipe
+      </div>
+    </div>
+
+    <!-- BLOC TEXTE : description + boutons réseaux sociaux -->
+    <div class="equipe-text">
+
+      <!-- Texte de présentation de l'équipe Inkipit -->
+      <p class="equipe-desc" data-i18n="equipe.desc">Bastian, Sébastien, Nicolas et Guillaume — quatre passionnés de trail qui ont décidé de faire découvrir les Awirs comme terrain de jeu. Une première édition lancée avec le cœur.</p>
+
+      <!-- Liens vers les réseaux sociaux -->
+      <!-- TODO : remplacer les # par les vraies URLs quand disponibles -->
+      <div class="equipe-socials">
+        <a href="#" class="btn-social" data-i18n="equipe.facebook" target="_blank" rel="noopener">Suivez-nous sur Facebook</a>
+        <a href="#" class="btn-social" data-i18n="equipe.instagram" target="_blank" rel="noopener">Suivez-nous sur Instagram</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- INSCRIPTION CTA -->
 <section id="inscription">
   <div>
@@ -164,6 +238,10 @@
   </div>
 </footer>
 
+<!-- Leaflet JS : la bibliothèque de cartes interactives -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- gpx.js : notre script de visualisation GPX (doit venir après Leaflet) -->
+<script src="gpx.js"></script>
 <script src="translations.js"></script>
 
 </body>
