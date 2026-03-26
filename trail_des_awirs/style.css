@@ -688,6 +688,33 @@ footer {
 .footer-info a:hover {
   opacity: 1;
 }
+
+/* ─── LIENS DÉSACTIVÉS (inscription non ouverte) ─── */
+/* data-soon marque les liens d'inscription comme "pas encore disponibles" */
+[data-soon] {
+  opacity: 0.5;        /* visuellement grisé pour signaler l'indisponibilité */
+  cursor: not-allowed; /* curseur interdit au survol */
+  position: relative;  /* nécessaire pour positionner le tooltip ::after */
+}
+
+/* Tooltip affiché au survol — lit le texte dans l'attribut data-tooltip */
+[data-soon]:hover::after {
+  content: attr(data-tooltip);  /* le texte vient de l'attribut, mis à jour par setLang() */
+  position: absolute;
+  bottom: calc(100% + 8px);     /* au-dessus du bouton */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--vert);
+  color: var(--creme);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid rgba(240,232,213,0.15);
+  pointer-events: none; /* le tooltip ne bloque pas les événements souris */
+  z-index: 10;
 }
 
 /* ─── DESKTOP ─── */

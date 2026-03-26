@@ -26,7 +26,7 @@
       <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
       <li><a href="#horaires" data-i18n="nav.horaires">Horaires</a></li>
       <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
-      <li><a href="https://otopservices.be" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.inscrire">S'inscrire</a></li>
+      <li><a href="https://otopservices.be" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.inscrire" data-soon data-i18n-tooltip="inscription.soon">S'inscrire</a></li>
     </ul>
     <!-- Bouton de bascule FR/NL — aria-label décrit l'action pour les lecteurs d'écran -->
     <button class="lang-toggle" onclick="toggleLang()" aria-label="Changer de langue / Taal wisselen">NL</button>
@@ -42,7 +42,7 @@
   <p class="hero-sub" data-i18n="hero.sub">Un trail accessible et authentique au cœur des sentiers vallonnés et techniques des Awirs. Trois parcours, une ambiance chaleureuse, bar et barbecue pour finir.</p>
   <div class="hero-actions">
     <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
-    <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-primary" data-i18n="hero.btn.primary">S'inscrire maintenant</a>
+    <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-primary" data-i18n="hero.btn.primary" data-soon data-i18n-tooltip="inscription.soon">S'inscrire maintenant</a>
     <a href="#parcours" class="btn-secondary" data-i18n="hero.btn.secondary">Voir les parcours</a>
   </div>
 
@@ -84,7 +84,7 @@
         <div id="viz-elev-0" class="viz-elev-container"></div>
       </div>
       <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
-      <div class="parcours-num" aria-hidden="true">01</div>
+      
       <div class="parcours-distance">6 km</div>
       <div class="parcours-nom" data-i18n="parcours.01.nom">Promenade · Débutant</div>
       <p class="parcours-desc" data-i18n="parcours.01.desc">Un tracé simple et accessible, ouvert à tous y compris aux marcheurs et participants accompagnés de leur chien. Esprit convivial et familial.</p>
@@ -111,7 +111,7 @@
         <div id="viz-elev-1" class="viz-elev-container"></div>
       </div>
       <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
-      <div class="parcours-num" aria-hidden="true">02</div>
+      
       <div class="parcours-distance">12 km</div>
       <div class="parcours-nom" data-i18n="parcours.02.nom">Confirmé</div>
       <p class="parcours-desc" data-i18n="parcours.02.desc">Un parcours vallonné avec un dénivelé marqué et quelques passages techniques. Idéal pour vivre une vraie expérience trail sur une distance stimulante.</p>
@@ -138,7 +138,7 @@
         <div id="viz-elev-2" class="viz-elev-container"></div>
       </div>
       <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
-      <div class="parcours-num" aria-hidden="true">03</div>
+      
       <div class="parcours-distance">21 km</div>
       <div class="parcours-nom" data-i18n="parcours.03.nom">Expert</div>
       <p class="parcours-desc" data-i18n="parcours.03.desc">Un tracé long, technique et exigeant au cœur des reliefs des Awirs. Pour les coureurs en quête de dépassement sur des sentiers engagés et variés.</p>
@@ -211,9 +211,7 @@
     <!-- trail_des_awirs/img/equipe.jpg, puis remplacer le div.equipe-photo-placeholder -->
     <!-- par : <img src="img/equipe.jpg" alt="L'équipe Inkipit">                  -->
     <div class="equipe-photo">
-      <div class="equipe-photo-placeholder" data-i18n="equipe.photo.placeholder">
-        Photo de l'équipe
-      </div>
+      <img src="img/equipe.jpg" alt="L'équipe Inkipit">
     </div>
 
     <!-- BLOC TEXTE : description + boutons réseaux sociaux -->
@@ -242,7 +240,7 @@
     <p data-i18n="inscription.text">Les inscriptions sont gérées par O'top Services. Pré-inscris-toi en ligne ou directement sur place dès 13h le jour de l'événement.</p>
   </div>
   <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
-  <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-dark" data-i18n="inscription.btn">S'inscrire sur O'top Services →</a>
+  <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-dark" data-i18n="inscription.btn" data-soon data-i18n-tooltip="inscription.soon">S'inscrire sur O'top Services →</a>
 </section>
 
 <!-- FOOTER -->
@@ -252,8 +250,8 @@
     <img src="img/logo_tda.svg" alt="Trail des Awirs" class="footer-logo-img">
   </div>
   <div class="footer-info" data-i18n="footer.info">
-    22 août 2026 · Cercle St Joseph &amp; Victor, Les Awirs<br>
-    Commune de Flémalle
+    ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>
+
   </div>
 </footer>
 

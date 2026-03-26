@@ -58,6 +58,7 @@ var translations = {
     'inscription.title':      'PRÊT·E<br>À COURIR\u00a0?',
     'inscription.text':       "Les inscriptions sont gérées par O'top Services. Pré-inscris-toi en ligne ou directement sur place dès 13h le jour de l'événement.",
     'inscription.btn':        "S'inscrire sur O'top Services →",
+    'inscription.soon':       'Il faut encore attendre un peu\u00a0!',
 
     /* Footer */
     'footer.info':            'ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>',
@@ -122,6 +123,7 @@ var translations = {
     'inscription.title':      'KLAAR OM<br>TE LOPEN\u00a0?',
     'inscription.text':       "De inschrijvingen worden beheerd door O'top Services. Schrijf je online in of rechtstreeks ter plaatse vanaf 13u op de dag van het evenement.",
     'inscription.btn':        'Inschrijven via O\'top Services →',
+    'inscription.soon':       'Nog even geduld\u00a0!',
 
     /* Footer */
     'footer.info':            'ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>',
@@ -131,13 +133,31 @@ var translations = {
 function setLang(lang) {
   document.documentElement.lang = lang;
   var t = translations[lang];
+
+  // Met à jour le texte de tous les éléments traduisibles
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
+
+  // Met à jour le texte du tooltip sur les liens désactivés (data-soon)
+  document.querySelectorAll('[data-i18n-tooltip]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-tooltip');
+    if (t[key] !== undefined) el.setAttribute('data-tooltip', t[key]);
+  });
+
   document.querySelector('.lang-toggle').textContent = lang === 'fr' ? 'NL' : 'FR';
   try { localStorage.setItem('trail-lang', lang); } catch(e) {}
 }
+
+// Bloque le clic sur tous les liens marqués data-soon
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-soon]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();  // empêche la navigation vers le lien
+    });
+  });
+});
 
 function toggleLang() {
   setLang(document.documentElement.lang === 'fr' ? 'nl' : 'fr');
