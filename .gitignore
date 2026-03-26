@@ -1,0 +1,5 @@
+# Dossier de configuration Claude Code (mémoire, plans, config locale)
+.claude/
+
+# Dossier de configuration VS Code (launch, settings locaux)
+.vscode/
