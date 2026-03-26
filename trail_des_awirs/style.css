@@ -701,7 +701,7 @@ footer {
 [data-soon]:hover::after {
   content: attr(data-tooltip);  /* le texte vient de l'attribut, mis à jour par setLang() */
   position: absolute;
-  bottom: calc(100% + 8px);     /* au-dessus du bouton */
+  bottom: calc(100% + 8px);     /* au-dessus du bouton par défaut */
   left: 50%;
   transform: translateX(-50%);
   background: var(--vert);
@@ -715,6 +715,12 @@ footer {
   border: 1px solid rgba(240,232,213,0.15);
   pointer-events: none; /* le tooltip ne bloque pas les événements souris */
   z-index: 10;
+}
+
+/* Dans la nav (en haut de l'écran), le tooltip s'affiche EN DESSOUS pour ne pas sortir de l'écran */
+nav [data-soon]:hover::after {
+  bottom: auto;
+  top: calc(100% + 8px);
 }
 
 /* ─── DESKTOP ─── */
