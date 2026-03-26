@@ -400,6 +400,10 @@ section {
   overflow: hidden;
   /* Évite que la carte Leaflet déborde visuellement de la carte parcours */
   position: relative;
+  /* Crée un contexte d'empilement isolé : les z-index internes de Leaflet
+     (qui montent très haut) restent confinés à l'intérieur de ce bloc
+     et ne passent plus devant le nav fixe (z-index: 100) */
+  isolation: isolate;
 }
 
 /* Barre des onglets "Carte" / "Profil" */
