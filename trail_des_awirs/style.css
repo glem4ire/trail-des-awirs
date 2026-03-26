@@ -206,7 +206,8 @@ nav {
   letter-spacing: 0.02em;
   color: var(--creme);
   margin-bottom: 1.5rem;
-  margin-top: 1.5rem  /* réduit sur mobile pour limiter le grand vide entre le nav et le titre */;
+  /* Réduit sur mobile pour limiter le grand vide entre le nav et le titre */
+  margin-top: 1.5rem;
 }
 
 .hero-sub {
@@ -330,24 +331,7 @@ section {
 /* Bloc photo : prend toute la largeur sur mobile */
 .equipe-photo { width: 100%; }
 
-/* Placeholder visuel affiché tant que la vraie photo n'est pas encore fournie */
-/* Fond vert moyen pour rester dans le thème, texte indicatif centré */
-.equipe-photo-placeholder {
-  background: var(--vert-mid);
-  border: 1px solid var(--creme-07);
-  border-radius: 4px;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--creme-25);
-}
-
-/* Style préparé pour la vraie photo quand elle sera fournie */
-/* object-fit: cover = recadre l'image pour remplir le bloc sans la déformer */
+/* Photo de l'équipe : recadrée pour remplir le bloc sans déformation */
 .equipe-photo img {
   width: 100%;
   height: 300px;
@@ -492,7 +476,6 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;   /* espace entre les cartes parcours */
-  margin-top: 1px;
 }
 
 .parcours-card {
@@ -505,23 +488,7 @@ section {
 
 .parcours-card:hover { background: var(--vert-clair); }
 
-/* Grand numéro décoratif en arrière-plan de chaque carte (ex : "01", "02") */
-/* aria-hidden="true" devrait être ajouté dans le HTML car c'est purement décoratif */
-.parcours-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem;
-  line-height: 1;
-  /* var(--creme-fade) = rgba(240,232,213,0.08) — légèrement plus visible que 0.06 */
-  color: var(--creme-fade);
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  /* pointer-events: none : le numéro ne bloque pas les clics sur la carte */
-  pointer-events: none;
-  /* user-select: none : le numéro n'est pas sélectionnable au copier-coller */
-  user-select: none;
-}
-
+/* Distance affichée en gros chiffres (ex : "6 km", "12 km") */
 .parcours-distance {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 4rem;
@@ -757,8 +724,7 @@ nav [data-soon]:hover::after {
   /* La photo prend 40% de la largeur sur desktop */
   .equipe-photo { flex: 0 0 40%; }
 
-  /* Hauteur augmentée sur desktop pour la photo et le placeholder */
-  .equipe-photo-placeholder,
+  /* Hauteur augmentée sur desktop pour la photo */
   .equipe-photo img { height: 380px; }
 
   /* Les boutons sociaux passent côte à côte sur desktop */

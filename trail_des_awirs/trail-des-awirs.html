@@ -182,8 +182,9 @@
 <section class="hero">
   <div class="topo-bg"></div>
 
-  <p class="hero-date" data-i18n="hero.date">22 Août 2026 — Commune de Flémalle</p>
-  <h1 class="hero-title">TRAIL<br>DES<br>AWIRS</h1>
+  <!-- Date de l'événement — le texte affiché vient de translations.js, pas d'ici -->
+  <p class="hero-date" data-i18n="hero.date">22 Août 2026</p>
+  <h1 class="hero-title" data-i18n="hero.title">TRAIL<br>DES<br>AWIRS</h1>
   <p class="hero-sub" data-i18n="hero.sub">Un trail accessible et authentique au cœur des sentiers vallonnés et techniques des Awirs. Trois parcours, une ambiance chaleureuse, bar et barbecue pour finir.</p>
   <div class="hero-actions">
     <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
@@ -193,15 +194,15 @@
 
   <div class="hero-stats">
     <div>
-      <div class="hero-stat-num">+200</div>
+      <div class="hero-stat-num" data-i18n="hero.stat.participants.num">+200</div>
       <div class="hero-stat-label" data-i18n="hero.stat.participants">Participants</div>
     </div>
     <div>
-      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-num" data-i18n="hero.stat.parcours.num">3</div>
       <div class="hero-stat-label" data-i18n="hero.stat.parcours">Parcours</div>
     </div>
     <div>
-      <div class="hero-stat-num">21km</div>
+      <div class="hero-stat-num" data-i18n="hero.stat.distance.num">21km</div>
       <div class="hero-stat-label" data-i18n="hero.stat.distance">Max distance</div>
     </div>
   </div>
@@ -228,19 +229,18 @@
         <!-- Le profil SVG sera injecté ici à la demande -->
         <div id="viz-elev-0" class="viz-elev-container"></div>
       </div>
-      <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
 
-      <div class="parcours-distance">6 km</div>
+      <div class="parcours-distance" data-i18n="parcours.01.distance">6 km</div>
       <div class="parcours-nom" data-i18n="parcours.01.nom">Promenade · Débutant</div>
       <p class="parcours-desc" data-i18n="parcours.01.desc">Un tracé simple et accessible, ouvert à tous y compris aux marcheurs et participants accompagnés de leur chien. Esprit convivial et familial.</p>
       <div class="parcours-stats">
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
-          <span class="parcours-stat-val">144 m D+</span>
+          <span class="parcours-stat-val" data-i18n="parcours.01.denivele.val">144 m D+</span>
         </div>
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
-          <span class="parcours-stat-val">15h15</span>
+          <span class="parcours-stat-val" data-i18n="parcours.01.depart.val">15h15</span>
         </div>
       </div>
     </div>
@@ -255,19 +255,18 @@
         <div id="viz-map-1" class="viz-map-container"></div>
         <div id="viz-elev-1" class="viz-elev-container"></div>
       </div>
-      <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
 
-      <div class="parcours-distance">12 km</div>
+      <div class="parcours-distance" data-i18n="parcours.02.distance">12 km</div>
       <div class="parcours-nom" data-i18n="parcours.02.nom">Confirmé</div>
       <p class="parcours-desc" data-i18n="parcours.02.desc">Un parcours vallonné avec un dénivelé marqué et quelques passages techniques. Idéal pour vivre une vraie expérience trail sur une distance stimulante.</p>
       <div class="parcours-stats">
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
-          <span class="parcours-stat-val">220 m D+</span>
+          <span class="parcours-stat-val" data-i18n="parcours.02.denivele.val">220 m D+</span>
         </div>
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
-          <span class="parcours-stat-val">15h15</span>
+          <span class="parcours-stat-val" data-i18n="parcours.02.depart.val">15h15</span>
         </div>
       </div>
     </div>
@@ -282,19 +281,18 @@
         <div id="viz-map-2" class="viz-map-container"></div>
         <div id="viz-elev-2" class="viz-elev-container"></div>
       </div>
-      <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
 
-      <div class="parcours-distance">21 km</div>
+      <div class="parcours-distance" data-i18n="parcours.03.distance">21 km</div>
       <div class="parcours-nom" data-i18n="parcours.03.nom">Expert</div>
       <p class="parcours-desc" data-i18n="parcours.03.desc">Un tracé long, technique et exigeant au cœur des reliefs des Awirs. Pour les coureurs en quête de dépassement sur des sentiers engagés et variés.</p>
       <div class="parcours-stats">
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
-          <span class="parcours-stat-val">700 m D+</span>
+          <span class="parcours-stat-val" data-i18n="parcours.03.denivele.val">700 m D+</span>
         </div>
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
-          <span class="parcours-stat-val">15h00</span>
+          <span class="parcours-stat-val" data-i18n="parcours.03.depart.val">15h00</span>
         </div>
         <div class="parcours-stat">
           <span class="parcours-stat-label" data-i18n="stat.ravitaillement">Ravitaillement</span>
@@ -315,22 +313,22 @@
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-time">13h00</div>
+      <div class="timeline-time" data-i18n="horaires.13h.time">13h00</div>
       <div class="timeline-event" data-i18n="horaires.13h">Ouverture<br>des inscriptions</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-time">15h00</div>
+      <div class="timeline-time" data-i18n="horaires.15h.time">15h00</div>
       <div class="timeline-event" data-i18n="horaires.15h">Départ<br>21 km</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-time">15h15</div>
+      <div class="timeline-time" data-i18n="horaires.15h15.time">15h15</div>
       <div class="timeline-event" data-i18n="horaires.15h15">Départ<br>12 km &amp; 6 km</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-time">17h30</div>
+      <div class="timeline-time" data-i18n="horaires.17h30.time">17h30</div>
       <div class="timeline-event" data-i18n="horaires.17h30">Remise<br>des prix</div>
     </div>
   </div>
@@ -355,9 +353,6 @@
     <!-- loading="lazy" : le navigateur ne charge cette image que quand l'utilisateur
          s'approche de cette zone en scrollant. Ça accélère le chargement initial
          de la page, puisque cette photo n'est pas visible au premier coup d'œil. -->
-    <!-- ÉTAPE FUTURE : quand la photo est prête, déposer le fichier dans         -->
-    <!-- trail_des_awirs/img/equipe.jpg, puis remplacer le div.equipe-photo-placeholder -->
-    <!-- par : <img src="img/equipe.jpg" alt="L'équipe Inkipit">                  -->
     <div class="equipe-photo">
       <img src="img/equipe.jpg" alt="L'équipe Inkipit organisatrice du Trail des Awirs" loading="lazy">
     </div>
@@ -404,7 +399,6 @@
   </div>
   <div class="footer-info" data-i18n="footer.info">
     ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>
-
   </div>
 </footer>
 
