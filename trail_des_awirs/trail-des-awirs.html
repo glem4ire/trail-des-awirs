@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trail des Awirs 2026</title>
+<!-- Description affichée dans les résultats Google et partagée sur les réseaux sociaux -->
+<meta name="description" content="Trail des Awirs 2026 — 22 août, Flémalle. Trois parcours (6, 12, 21 km) sur les sentiers vallonnés des Awirs. Ambiance conviviale, bar et barbecue.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- CSS de Leaflet : styles de la carte interactive (chargé depuis un CDN public) -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -11,15 +13,23 @@
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">Trail des Awirs</a>
+<!-- Navigation fixe en haut de page : logo à gauche, liens + bouton langue à droite -->
+<!-- aria-label="Navigation principale" permet aux lecteurs d'écran d'identifier ce bloc -->
+<nav aria-label="Navigation principale">
+  <!-- Logo SVG dans la nav — taille contrôlée via CSS (.nav-logo img) -->
+  <a href="#" class="nav-logo" aria-label="Trail des Awirs — retour en haut de page">
+    <img src="img/logo_tda.svg" alt="Trail des Awirs" class="nav-logo-img">
+  </a>
   <div class="nav-right">
+    <!-- Liste des liens de navigation — cachée sur mobile, visible sur desktop -->
     <ul class="nav-links">
       <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
       <li><a href="#horaires" data-i18n="nav.horaires">Horaires</a></li>
-      <li><a href="https://otopservices.be" target="_blank" class="nav-cta" data-i18n="nav.inscrire">S'inscrire</a></li>
+      <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
+      <li><a href="https://otopservices.be" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.inscrire">S'inscrire</a></li>
     </ul>
-    <button class="lang-toggle" onclick="toggleLang()" aria-label="Changer de langue">NL</button>
+    <!-- Bouton de bascule FR/NL — aria-label décrit l'action pour les lecteurs d'écran -->
+    <button class="lang-toggle" onclick="toggleLang()" aria-label="Changer de langue / Taal wisselen">NL</button>
   </div>
 </nav>
 
@@ -31,7 +41,8 @@
   <h1 class="hero-title">TRAIL<br>DES<br>AWIRS</h1>
   <p class="hero-sub" data-i18n="hero.sub">Un trail accessible et authentique au cœur des sentiers vallonnés et techniques des Awirs. Trois parcours, une ambiance chaleureuse, bar et barbecue pour finir.</p>
   <div class="hero-actions">
-    <a href="https://otopservices.be" target="_blank" class="btn-primary" data-i18n="hero.btn.primary">S'inscrire maintenant</a>
+    <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
+    <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-primary" data-i18n="hero.btn.primary">S'inscrire maintenant</a>
     <a href="#parcours" class="btn-secondary" data-i18n="hero.btn.secondary">Voir les parcours</a>
   </div>
 
@@ -72,7 +83,8 @@
         <!-- Le profil SVG sera injecté ici à la demande -->
         <div id="viz-elev-0" class="viz-elev-container"></div>
       </div>
-      <div class="parcours-num">01</div>
+      <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
+      <div class="parcours-num" aria-hidden="true">01</div>
       <div class="parcours-distance">6 km</div>
       <div class="parcours-nom" data-i18n="parcours.01.nom">Promenade · Débutant</div>
       <p class="parcours-desc" data-i18n="parcours.01.desc">Un tracé simple et accessible, ouvert à tous y compris aux marcheurs et participants accompagnés de leur chien. Esprit convivial et familial.</p>
@@ -98,7 +110,8 @@
         <div id="viz-map-1" class="viz-map-container"></div>
         <div id="viz-elev-1" class="viz-elev-container"></div>
       </div>
-      <div class="parcours-num">02</div>
+      <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
+      <div class="parcours-num" aria-hidden="true">02</div>
       <div class="parcours-distance">12 km</div>
       <div class="parcours-nom" data-i18n="parcours.02.nom">Confirmé</div>
       <p class="parcours-desc" data-i18n="parcours.02.desc">Un parcours vallonné avec un dénivelé marqué et quelques passages techniques. Idéal pour vivre une vraie expérience trail sur une distance stimulante.</p>
@@ -124,7 +137,8 @@
         <div id="viz-map-2" class="viz-map-container"></div>
         <div id="viz-elev-2" class="viz-elev-container"></div>
       </div>
-      <div class="parcours-num">03</div>
+      <!-- aria-hidden="true" : élément purement décoratif, ignoré par les lecteurs d'écran -->
+      <div class="parcours-num" aria-hidden="true">03</div>
       <div class="parcours-distance">21 km</div>
       <div class="parcours-nom" data-i18n="parcours.03.nom">Expert</div>
       <p class="parcours-desc" data-i18n="parcours.03.desc">Un tracé long, technique et exigeant au cœur des reliefs des Awirs. Pour les coureurs en quête de dépassement sur des sentiers engagés et variés.</p>
@@ -220,18 +234,23 @@
 </section>
 
 <!-- INSCRIPTION CTA -->
+<!-- div.inscription-content regroupe le texte gauche pour aligner face au bouton sur desktop -->
 <section id="inscription">
-  <div>
+  <div class="inscription-content">
     <p class="section-label" data-i18n="inscription.label">Rejoins l'aventure</p>
     <h2 class="section-title" data-i18n="inscription.title">PRÊT·E<br>À COURIR&nbsp;?</h2>
     <p data-i18n="inscription.text">Les inscriptions sont gérées par O'top Services. Pré-inscris-toi en ligne ou directement sur place dès 13h le jour de l'événement.</p>
   </div>
-  <a href="https://otopservices.be" target="_blank" class="btn-dark" data-i18n="inscription.btn">S'inscrire sur O'top Services →</a>
+  <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
+  <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-dark" data-i18n="inscription.btn">S'inscrire sur O'top Services →</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Trail des Awirs 2026</div>
+  <!-- Logo dans le footer -->
+  <div class="footer-logo">
+    <img src="img/logo_tda.svg" alt="Trail des Awirs" class="footer-logo-img">
+  </div>
   <div class="footer-info" data-i18n="footer.info">
     22 août 2026 · Cercle St Joseph &amp; Victor, Les Awirs<br>
     Commune de Flémalle

@@ -16,6 +16,10 @@ body {
   overflow-x: hidden;
 }
 
+/* Focus par défaut : supprime l'outline navigateur uniquement pour la souris */
+/* On laisse :focus-visible géré élément par élément (voir plus bas dans ce fichier) */
+:focus:not(:focus-visible) { outline: none; }
+
 /* TOPO BACKGROUND PATTERN */
 .topo-bg {
   position: absolute;
@@ -31,7 +35,7 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.5rem;  /* légèrement réduit pour que la nav soit moins haute sur mobile */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,11 +45,16 @@ nav {
 }
 
 .nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
-  color: var(--creme);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+/* Taille du logo dans la barre de navigation */
+.nav-logo-img {
+  height: 36px;   /* hauteur fixe — la largeur s'adapte automatiquement */
+  width: auto;
+  display: block;
 }
 
 .nav-right {
@@ -73,18 +82,29 @@ nav {
 
 .nav-links a:hover { opacity: 1; }
 
-.nav-cta {
-  background: var(--orange) !important;
-  color: var(--vert) !important;
-  padding: 0.5rem 1.2rem !important;
-  border-radius: 4px;
-  opacity: 1 !important;
-  font-weight: 600 !important;
-  transition: background 0.2s !important;
+/* Focus clavier visible sur les liens de navigation */
+.nav-links a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+  opacity: 1;
+  border-radius: 2px;
 }
 
-.nav-cta:hover { background: #d4622d !important; }
+/* .nav-links .nav-cta : sélecteur plus précis qui bat .nav-links a sans avoir besoin de !important */
+/* C'est plus propre et plus facile à maintenir qu'une cascade de !important */
+.nav-links .nav-cta {
+  background: var(--orange);
+  color: var(--vert);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  opacity: 1;
+  font-weight: 600;
+  transition: background 0.2s;
+}
 
+.nav-links .nav-cta:hover { background: #d4622d; }
+
+/* Bouton de bascule FR/NL — toujours visible, même sur mobile */
 .lang-toggle {
   background: none;
   border: 1px solid rgba(240,232,213,0.3);
@@ -93,7 +113,9 @@ nav {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.15em;
-  padding: 0.35rem 0.7rem;
+  /* min-height + padding garantissent une zone de clic d'au moins 44px (recommandation WCAG) */
+  min-height: 44px;
+  padding: 0 0.9rem;
   border-radius: 3px;
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
@@ -106,26 +128,32 @@ nav {
   color: var(--creme);
 }
 
+/* Style de focus clavier : contour orange visible pour la navigation au clavier */
+/* :focus-visible s'affiche uniquement avec le clavier, pas avec la souris */
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
 /* ─── HERO — mobile first ─── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 75vh;   /* réduit sur mobile : évite le grand vide entre le nav et le titre */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 1.5rem 4rem;
+  padding: 5rem 1.5rem 3.5rem;  /* padding-top = espace pour le nav fixe */
   overflow: hidden;
 }
 
 .hero .topo-bg { opacity: 1; }
 
 .hero-date {
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: 'Bebas Neue', sans-serif;  /* même police que le titre hero */
+  font-size: 1.6rem;                       /* bien plus grand qu'avant (0.78rem → 1.6rem) */
+  letter-spacing: 0.12em;
   color: var(--orange);
-  font-weight: 600;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 
 .hero-title {
@@ -169,7 +197,10 @@ nav {
 
 .btn-primary:hover { background: #d4622d; transform: translateY(-1px); }
 
+/* Bouton secondaire : lien souligné, moins visible que le bouton principal */
+/* display: inline-block est nécessaire pour que padding-bottom soit respecté */
 .btn-secondary {
+  display: inline-block;
   color: var(--creme);
   font-size: 0.85rem;
   letter-spacing: 0.1em;
@@ -182,6 +213,14 @@ nav {
 }
 
 .btn-secondary:hover { opacity: 1; }
+
+/* Focus clavier visible sur les liens boutons */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-dark:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
 
 .hero-stats {
   display: none;
@@ -313,14 +352,26 @@ section {
 /* Au survol : les boutons deviennent pleinement opaques */
 .btn-social:hover { opacity: 1; }
 
+/* Focus clavier visible sur les boutons réseaux sociaux */
+.btn-social:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+  opacity: 1;
+  border-radius: 2px;
+}
+
 /* ─── VISUALISATION GPX ─── */
 /* Ces styles gèrent la zone de carte/profil en haut de chaque carte parcours */
 
 /* Conteneur de la viz : marges négatives pour annuler le padding de la carte  */
 /* et ainsi faire s'étendre la viz jusqu'aux bords de la carte (bord à bord)  */
+/* Les valeurs -3rem et -2.5rem correspondent exactement au padding de .parcours-card */
+/* (padding: 3rem 2.5rem) — si on change l'un, il faut changer l'autre aussi   */
 .parcours-viz {
   margin: -3rem -2.5rem 2.5rem;
   overflow: hidden;
+  /* Évite que la carte Leaflet déborde visuellement de la carte parcours */
+  position: relative;
 }
 
 /* Barre des onglets "Carte" / "Profil" */
@@ -341,9 +392,17 @@ section {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.65rem 1.2rem;
+  /* min-height 44px : zone de clic suffisante sur mobile (recommandation WCAG) */
+  min-height: 44px;
+  padding: 0 1.2rem;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s;
+}
+
+/* Focus clavier visible sur les onglets de visualisation */
+.viz-tab:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: -2px;
 }
 
 /* Onglet actif : texte orange + soulignement orange */
@@ -389,7 +448,7 @@ section {
 .parcours-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5px;
+  gap: 1.5rem;   /* espace entre les cartes parcours */
   margin-top: 1px;
 }
 
@@ -403,14 +462,21 @@ section {
 
 .parcours-card:hover { background: var(--vert-clair); }
 
+/* Grand numéro décoratif en arrière-plan de chaque carte (ex : "01", "02") */
+/* aria-hidden="true" devrait être ajouté dans le HTML car c'est purement décoratif */
 .parcours-num {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 6rem;
   line-height: 1;
-  color: rgba(240,232,213,0.06);
+  /* var(--creme-fade) = rgba(240,232,213,0.08) — légèrement plus visible que 0.06 */
+  color: var(--creme-fade);
   position: absolute;
   top: 1.5rem;
   right: 2rem;
+  /* pointer-events: none : le numéro ne bloque pas les clics sur la carte */
+  pointer-events: none;
+  /* user-select: none : le numéro n'est pas sélectionnable au copier-coller */
+  user-select: none;
 }
 
 .parcours-distance {
@@ -510,6 +576,12 @@ section {
   gap: 2rem;
 }
 
+/* Bloc de texte gauche : label + titre + description */
+/* Sur mobile il occupe toute la largeur, sur desktop il est limité à gauche */
+.inscription-content {
+  width: 100%;
+}
+
 #inscription .section-title { color: var(--vert); margin-bottom: 0.5rem; }
 #inscription .section-label { color: rgba(15,45,23,0.6); }
 
@@ -551,10 +623,15 @@ footer {
 }
 
 .footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
-  color: rgba(240,232,213,0.4);
+  display: flex;
+  justify-content: center;
+}
+
+/* Logo dans le footer — plus grand que dans la nav, opacité réduite pour discrétion */
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  opacity: 0.35;
 }
 
 .footer-info {
@@ -570,7 +647,7 @@ footer {
   nav { padding: 1.2rem 3rem; }
   .nav-links { display: flex; }
 
-  .hero { padding: 0 3rem 5rem; }
+  .hero { min-height: 100vh; padding: 0 3rem 5rem; }  /* plein écran sur desktop */
 
   .hero-actions {
     flex-direction: row;

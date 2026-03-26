@@ -109,7 +109,9 @@
     var iH = VH - P.t - P.b;
 
     // Calcule la position horizontale (x) d'un point selon son index dans le tableau
-    function px(i)   { return P.l + (i / (pts.length - 1)) * iW; }
+    // On protège contre la division par zéro si le tracé n'a qu'un seul point
+    var denomX = pts.length > 1 ? pts.length - 1 : 1;
+    function px(i)   { return P.l + (i / denomX) * iW; }
     // Calcule la position verticale (y) selon l'altitude (plus haut = y plus petit en SVG)
     function py(ele) { return P.t + (1 - (ele - lo) / range) * iH; }
 

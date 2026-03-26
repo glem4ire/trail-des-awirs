@@ -6,7 +6,7 @@ var translations = {
     'nav.inscrire':           "S'inscrire",
 
     /* Hero */
-    'hero.date':              '22 Août 2026 — Commune de Flémalle',
+    'hero.date':              '22 Août 2026',
     'hero.sub':               "Un trail accessible et authentique au cœur des sentiers vallonnés et techniques des Awirs. Trois parcours, une ambiance chaleureuse, bar et barbecue pour finir.",
     'hero.btn.primary':       "S'inscrire maintenant",
     'hero.btn.secondary':     'Voir les parcours',
@@ -70,7 +70,7 @@ var translations = {
     'nav.inscrire':           'Inschrijven',
 
     /* Hero */
-    'hero.date':              '22 Augustus 2026 — Gemeente Flémalle',
+    'hero.date':              '22 Augustus 2026',
     'hero.sub':               'Een toegankelijke en authentieke trail in het hart van de glooiende en technische paden van de Awirs. Drie parcours, een warme sfeer, bar en barbecue achteraf.',
     'hero.btn.primary':       'Nu inschrijven',
     'hero.btn.secondary':     'Bekijk de parcours',
@@ -144,7 +144,10 @@ function toggleLang() {
 }
 
 (function() {
+  // Au chargement, on applique toujours setLang() — même pour le français.
+  // Ainsi, le texte affiché vient TOUJOURS de translations.js,
+  // et jamais du texte en dur écrit dans le HTML.
   var saved;
   try { saved = localStorage.getItem('trail-lang'); } catch(e) {}
-  if (saved === 'nl') setLang('nl');
+  setLang(saved === 'nl' ? 'nl' : 'fr');
 })();
