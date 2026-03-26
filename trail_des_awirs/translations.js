@@ -60,7 +60,7 @@ var translations = {
     'inscription.btn':        "S'inscrire sur O'top Services →",
 
     /* Footer */
-    'footer.info':            '22 août 2026 · Cercle St Joseph &amp; Victor, Les Awirs<br>Commune de Flémalle',
+    'footer.info':            'ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>',
   },
 
   nl: {
@@ -124,7 +124,7 @@ var translations = {
     'inscription.btn':        'Inschrijven via O\'top Services →',
 
     /* Footer */
-    'footer.info':            '22 augustus 2026 · Cercle St Joseph &amp; Victor, Les Awirs<br>Gemeente Flémalle',
+    'footer.info':            'ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>',
   }
 };
 

@@ -144,9 +144,43 @@ nav {
   justify-content: flex-end;
   padding: 5rem 1.5rem 3.5rem;  /* padding-top = espace pour le nav fixe */
   overflow: hidden;
+
+  /* Photo de fond : couvre tout le hero, centrée */
+  background-image: url('img/background.jpg');
+  background-size: cover;
+  background-position: center top;
 }
 
-.hero .topo-bg { opacity: 1; }
+/* Overlay sombre en dégradé : transparent en haut, très sombre en bas
+   Cela garantit que le texte (en bas) est toujours lisible sur l'image */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;  /* couvre tout le hero */
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 28, 14, 0.35) 0%,    /* légèrement sombre en haut */
+    rgba(10, 28, 14, 0.75) 60%,   /* plus sombre au milieu */
+    rgba(10, 28, 14, 0.92) 100%   /* très sombre en bas où se trouve le texte */
+  );
+  z-index: 0;  /* sous le texte mais au-dessus de l'image */
+}
+
+/* Le motif topographique reste visible par-dessus l'overlay */
+.hero .topo-bg {
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* Tout le contenu textuel doit être au-dessus de l'overlay (z-index > 0) */
+.hero-date,
+.hero-title,
+.hero-sub,
+.hero-actions,
+.hero-stats {
+  position: relative;
+  z-index: 2;
+}
 
 .hero-date {
   font-family: 'Bebas Neue', sans-serif;  /* même police que le titre hero */
@@ -163,6 +197,7 @@ nav {
   letter-spacing: 0.02em;
   color: var(--creme);
   margin-bottom: 1.5rem;
+  margin-top: 1.5rem  /* réduit sur mobile pour limiter le grand vide entre le nav et le titre */;
 }
 
 .hero-sub {
@@ -642,12 +677,25 @@ footer {
   line-height: 1.7;
 }
 
+/* Lien email dans le footer : orange discret, s'illumine au survol */
+.footer-info a {
+  color: var(--orange);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.footer-info a:hover {
+  opacity: 1;
+}
+}
+
 /* ─── DESKTOP ─── */
 @media (min-width: 900px) {
   nav { padding: 1.2rem 3rem; }
   .nav-links { display: flex; }
 
-  .hero { min-height: 100vh; padding: 0 3rem 5rem; }  /* plein écran sur desktop */
+  .hero { min-height: 100vh; padding: 2rem 3rem 5rem; }  /* plein écran sur desktop */
 
   .hero-actions {
     flex-direction: row;
