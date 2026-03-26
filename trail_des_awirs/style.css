@@ -5,6 +5,15 @@
   --creme: #f0e8d5;
   --creme-fade: rgba(240,232,213,0.08);
   --orange: #e8703a;
+  --footer-bg: #070f09;
+
+  /* Opacités crème réutilisées dans tout le site */
+  --creme-07:  rgba(240,232,213,0.07);   /* bordures subtiles */
+  --creme-25:  rgba(240,232,213,0.25);   /* textes très discrets */
+  --creme-30:  rgba(240,232,213,0.30);   /* bordures légères */
+  --creme-45:  rgba(240,232,213,0.45);   /* textes secondaires */
+  --creme-60:  rgba(240,232,213,0.60);   /* textes descriptifs */
+  --creme-70:  rgba(240,232,213,0.70);   /* textes moyennement visibles */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -107,7 +116,7 @@ nav {
 /* Bouton de bascule FR/NL — toujours visible, même sur mobile */
 .lang-toggle {
   background: none;
-  border: 1px solid rgba(240,232,213,0.3);
+  border: 1px solid var(--creme-30);
   color: var(--creme);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.75rem;
@@ -202,7 +211,7 @@ nav {
 
 .hero-sub {
   font-size: 1rem;
-  color: rgba(240,232,213,0.6);
+  color: var(--creme-60);
   max-width: 520px;
   line-height: 1.7;
   margin-bottom: 2.5rem;
@@ -226,7 +235,7 @@ nav {
   text-decoration: none;
   padding: 0.9rem 2rem;
   border-radius: 4px;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s, transform 0.2s;
   display: inline-block;
 }
 
@@ -243,7 +252,7 @@ nav {
   text-decoration: none;
   opacity: 0.6;
   transition: opacity 0.2s;
-  border-bottom: 1px solid rgba(240,232,213,0.3);
+  border-bottom: 1px solid var(--creme-30);
   padding-bottom: 2px;
 }
 
@@ -278,7 +287,7 @@ nav {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(240,232,213,0.45);
+  color: var(--creme-45);
   margin-top: 2px;
 }
 
@@ -325,7 +334,7 @@ section {
 /* Fond vert moyen pour rester dans le thème, texte indicatif centré */
 .equipe-photo-placeholder {
   background: var(--vert-mid);
-  border: 1px solid rgba(240,232,213,0.07);
+  border: 1px solid var(--creme-07);
   border-radius: 4px;
   height: 300px;
   display: flex;
@@ -334,7 +343,7 @@ section {
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(240,232,213,0.25);
+  color: var(--creme-25);
 }
 
 /* Style préparé pour la vraie photo quand elle sera fournie */
@@ -358,7 +367,7 @@ section {
 /* Texte de présentation de l'équipe */
 .equipe-desc {
   font-size: 1rem;
-  color: rgba(240,232,213,0.7);
+  color: var(--creme-70);
   line-height: 1.8;
 }
 
@@ -379,7 +388,7 @@ section {
   text-decoration: none;
   font-weight: 500;
   opacity: 0.6;
-  border-bottom: 1px solid rgba(240,232,213,0.3);
+  border-bottom: 1px solid var(--creme-30);
   padding-bottom: 2px;
   transition: opacity 0.2s;
 }
@@ -412,7 +421,7 @@ section {
 /* Barre des onglets "Carte" / "Profil" */
 .viz-tabs {
   display: flex;
-  border-bottom: 1px solid rgba(240,232,213,0.07);
+  border-bottom: 1px solid var(--creme-07);
 }
 
 /* Style d'un onglet inactif */
@@ -421,8 +430,7 @@ section {
   border: none;
   border-bottom: 2px solid transparent;  /* soulignement caché par défaut */
   margin-bottom: -1px;                   /* chevauche la bordure de .viz-tabs */
-  color: rgba(240,232,213,0.35);
-  font-family: 'DM Sans', sans-serif;
+  color: var(--creme-30);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -447,7 +455,7 @@ section {
 }
 
 .viz-tab:hover:not(.viz-tab--active) {
-  color: rgba(240,232,213,0.65);
+  color: var(--creme-60);
 }
 
 /* Container de la carte Leaflet : Leaflet EXIGE une hauteur explicite en CSS */
@@ -490,7 +498,7 @@ section {
 .parcours-card {
   background: var(--vert);
   padding: 3rem 2.5rem;
-  border: 1px solid rgba(240,232,213,0.07);
+  border: 1px solid var(--creme-07);
   position: relative;
   transition: background 0.25s;
 }
@@ -533,7 +541,7 @@ section {
 
 .parcours-desc {
   font-size: 0.9rem;
-  color: rgba(240,232,213,0.55);
+  color: var(--creme-60);
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -549,11 +557,11 @@ section {
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  border-top: 1px solid rgba(240,232,213,0.07);
+  border-top: 1px solid var(--creme-07);
   padding-top: 0.7rem;
 }
 
-.parcours-stat-label { color: rgba(240,232,213,0.4); letter-spacing: 0.08em; }
+.parcours-stat-label { color: var(--creme-45); letter-spacing: 0.08em; }
 .parcours-stat-val { color: var(--creme); font-weight: 600; }
 
 /* ─── HORAIRES ─── */
@@ -567,7 +575,7 @@ section {
   position: relative;
 }
 
-.timeline::before { display: none; }
+/* La ligne verticale de la timeline est masquée sur mobile, visible sur desktop (voir @media) */
 
 .timeline-item {
   flex: 1;
@@ -597,7 +605,7 @@ section {
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(240,232,213,0.45);
+  color: var(--creme-45);
   line-height: 1.5;
 }
 
@@ -639,7 +647,7 @@ section {
   padding: 1rem 2.5rem;
   border-radius: 4px;
   white-space: nowrap;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s, transform 0.2s;
   display: inline-block;
 }
 
@@ -647,14 +655,14 @@ section {
 
 /* ─── FOOTER — mobile first ─── */
 footer {
-  background: #070f09;
+  background: var(--footer-bg);
   padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   text-align: center;
-  border-top: 1px solid rgba(240,232,213,0.06);
+  border-top: 1px solid var(--creme-07);
 }
 
 .footer-logo {
@@ -671,7 +679,7 @@ footer {
 
 .footer-info {
   font-size: 0.78rem;
-  color: rgba(240,232,213,0.25);
+  color: var(--creme-25);
   letter-spacing: 0.06em;
   text-align: center;
   line-height: 1.7;
@@ -764,8 +772,8 @@ nav [data-soon]:hover::after {
     gap: 0;
   }
 
+  /* Ligne horizontale reliant les points de la timeline sur desktop */
   .timeline::before {
-    display: block;
     content: '';
     position: absolute;
     top: 2.6rem;
