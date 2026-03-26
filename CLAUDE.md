@@ -23,12 +23,12 @@ No build tools or package managers. Node.js is available — serve with :
 npx serve . -p 8080
 ```
 
-Then open `http://localhost:8080/trail_des_awirs/`. A VS Code launch config (`.vscode/launch.json`) is pre-configured to open Chrome at `http://localhost:8080`.
+Then open `http://localhost:8080/`. A VS Code launch config (`.vscode/launch.json`) is pre-configured to open Chrome at `http://localhost:8080`.
 
 ## File Structure
 
 ```
-trail_des_awirs/
+/
 ├── index.html             — HTML structure only
 ├── style.css              — all styles
 ├── translations.js        — all FR/NL strings + language switching logic
@@ -105,7 +105,7 @@ Fond topographique SVG : classe `.topo-bg` à ajouter dans chaque section (SVG i
 
 - **GitHub** : `https://github.com/glem4ire/trail-des-awirs`
 - **GitHub Pages** : `https://glem4ire.github.io/trail-des-awirs/`
-- `index.html` à la racine redirige vers `trail_des_awirs/index.html`
+- `index.html` à la racine — page principale, servie directement par GitHub Pages
 - `.nojekyll` à la racine désactive le build Jekyll
 
 ## Git
