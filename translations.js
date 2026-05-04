@@ -20,20 +20,6 @@ function _t(key, fr, nl) {
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   WAITING SCREEN — Page d'attente en attendant la version finale
-   ═══════════════════════════════════════════════════════════════════ */
-
-_t('waiting.lang',           'FR',                      'NL');
-_t('waiting.title',          'TRAIL<br>DES<br>AWIRS',   'TRAIL<br>DES<br>AWIRS');
-_t('waiting.date-label',     'Date',                    'Datum');
-_t('waiting.date',           '22 Août 2026',            '22 Augustus 2026');
-_t('waiting.location-label', 'Lieu',                    'Locatie');
-_t('waiting.location',       'Flémalle, Belgique',      'Flémalle, België');
-_t('waiting.coming-soon',    'Plus d\'informations bientôt',  'Meer informatie binnenkort');
-_t('waiting.description',    'Restez à l\'écoute pour les détails complets',  'Blijf op de hoogte voor volledige details');
-
-
-/* ═══════════════════════════════════════════════════════════════════
    NAVIGATION
    ═══════════════════════════════════════════════════════════════════ */
 
