@@ -768,3 +768,187 @@ nav [data-soon]:hover::after {
 
   .footer-info { text-align: right; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   WAITING SCREEN — Page d'attente en attendant la version finale
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Conteneur principal du waiting screen — remplit l'écran et centre le contenu */
+.waiting-screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vert);
+  color: var(--creme);
+  overflow: hidden;
+}
+
+/* Conteneur du contenu — centré et avec padding sur mobile */
+.waiting-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Logo grande taille du waiting screen — SVG responsive */
+.waiting-logo {
+  margin-bottom: 2.5rem;
+  /* SVG responsif : width auto pour garder les proportions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waiting-logo svg {
+  width: 180px;
+  height: 180px;
+  opacity: 0.9;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animation subtile du logo : mouvement vertical doux */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Titre du trail — grand et impactant */
+.waiting-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  color: var(--creme);
+}
+
+/* Bloc des informations — date et lieu côte à côte (flexbox) */
+.waiting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--creme-30);
+  border-bottom: 1px solid var(--creme-30);
+}
+
+/* Chaque ligne info : label (petit) + valeur (grand) */
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Libellé gris discret : "Date", "Lieu", etc. */
+.info-label {
+  font-size: 0.85rem;
+  color: var(--creme-45);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Valeur : date ou lieu — grand et visible */
+.info-value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+
+/* Message principal "Plus d'informations bientôt" */
+.waiting-message {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--creme);
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+}
+
+/* Texte descriptif — plus petit et discret */
+.waiting-description {
+  font-size: 0.95rem;
+  color: var(--creme-60);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Bouton pour changer la langue — petit et discret */
+.lang-toggle {
+  background: rgba(232,112,58,0.15);
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Au survol : le bouton langue devient plus visible */
+.lang-toggle:hover {
+  background: rgba(232,112,58,0.25);
+  transform: translateY(-2px);
+}
+
+/* Focus clavier visible pour l'accessibilité */
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* VERSION DESKTOP — Styles pour écrans larges */
+@media (min-width: 900px) {
+  /* Le titre peut être plus grand sur desktop */
+  .waiting-title {
+    font-size: 4.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Sur desktop : date et lieu côte à côte */
+  .waiting-info {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2.5rem 0;
+  }
+
+  /* Chaque info item prend l'espace disponible */
+  .info-item {
+    flex: 0 0 150px;
+  }
+
+  /* Le logo peut être plus grand sur desktop */
+  .waiting-logo svg {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Conteneur un peu plus spacieux sur desktop */
+  .waiting-container {
+    padding: 3rem 2rem;
+    max-width: 800px;
+  }
+
+  /* Le message et description : font plus visible sur grand écran */
+  .waiting-message {
+    font-size: 1.5rem;
+  }
+
+  .waiting-description {
+    font-size: 1.05rem;
+  }
+}
