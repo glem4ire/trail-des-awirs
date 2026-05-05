@@ -209,48 +209,14 @@
     color: var(--orange);
   }
 
-  /* ─── LES 3 DISTANCES ─── */
-  .distances {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 0;
-    margin-top: 1.2rem;
-  }
-  /* Chaque distance est dans une « colonne » avec un séparateur vertical à droite */
-  .distance {
-    padding: 0 2.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.45rem;
-    border-right: 1px solid var(--creme-30);
-  }
-  .distance:last-child { border-right: none; }   /* pas de séparateur sur le dernier */
-
-  /* Le grand chiffre (6, 12, 21) */
-  .distance-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.6rem;   /* réduit : était 3.2rem */
-    line-height: 1;
-    color: var(--creme);
-  }
-  /* Le label « km » sous le chiffre */
-  .distance-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 600;
-  }
-  /* Le dénivelé (ex : « 144 m D+ ») affiché en très petit */
-  .distance-deniv {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--creme-45);
-    font-weight: 500;
-    margin-top: 0.15rem;
+  /* ─── TEXTE D'ACCROCHE ─── */
+  /* Phrase d'annonce sous la date/lieu — lisible, aérée, pas trop grande */
+  .teaser {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    line-height: 1.65;
+    color: var(--creme-70);
+    max-width: 520px;
+    font-weight: 400;
   }
 
   /* ─── BAS DE PAGE : statut + réseaux + contact ─── */
@@ -369,8 +335,6 @@
 
   /* ─── ADAPTATIONS MOBILE (écrans < 600px) ─── */
   @media (max-width: 600px) {
-    .distance { padding: 0 0.8rem; }            /* moins d'espace entre distances */
-    .distance-num { font-size: 2rem; }          /* chiffres plus petits sur mobile */
     .meta { font-size: 1.2rem; gap: 0.4rem 0.8rem; }
     main { padding: 1.5rem 1rem; gap: 1rem; }
   }
@@ -402,30 +366,15 @@
       <span class="place" data-i18n="place">Les Awirs · Flémalle</span>
     </div>
 
-    <!-- Les 3 distances avec leurs dénivelés -->
-    <div class="distances">
-      <div class="distance">
-        <div class="distance-num">6</div>
-        <div class="distance-label" data-i18n="km">km</div>
-        <div class="distance-deniv">144 m D+</div>
-      </div>
-      <div class="distance">
-        <div class="distance-num">12</div>
-        <div class="distance-label" data-i18n="km">km</div>
-        <div class="distance-deniv">220 m D+</div>
-      </div>
-      <div class="distance">
-        <div class="distance-num">21</div>
-        <div class="distance-label" data-i18n="km">km</div>
-        <div class="distance-deniv">700 m D+</div>
-      </div>
-    </div>
+    <!-- Texte d'accroche : annonce l'arrivée du site -->
+    <p class="teaser" data-i18n="teaser">Le site complet arrive bientôt — parcours, horaires, inscriptions et tout ce qu'il faut savoir pour s'élancer sur les sentiers des Awirs.</p>
+
+    <!-- Statut : site bientôt en ligne, avec point pulsé -->
+    <span class="status" data-i18n="soon">Site bientôt en ligne</span>
   </div>
 
   <!-- BAS DE PAGE -->
   <div class="footer">
-    <!-- Statut : « Inscriptions bientôt ouvertes » avec point pulsé -->
-    <span class="status" data-i18n="soon">Inscriptions bientôt ouvertes</span>
 
     <!-- Bloc réseaux sociaux -->
     <div class="socials-block">
@@ -466,16 +415,16 @@
     fr: {
       date: '22 Août 2026',
       place: 'Les Awirs · Flémalle',
-      km: 'km',
-      soon: 'Inscriptions bientôt ouvertes',
+      teaser: 'Le site complet arrive bientôt — parcours, horaires, inscriptions et tout ce qu\'il faut savoir pour s\'élancer sur les sentiers des Awirs.',
+      soon: 'Site bientôt en ligne',
       follow: "Suivez l'aventure",
       org: 'Organisé par <strong>ASBL Inkitrail</strong>'
     },
     nl: {
       date: '22 Augustus 2026',
       place: 'Les Awirs · Flémalle',
-      km: 'km',
-      soon: 'Inschrijvingen binnenkort geopend',
+      teaser: 'De volledige website komt binnenkort — parcours, tijdschema, inschrijvingen en alles wat je moet weten om de trails van Awirs te verkennen.',
+      soon: 'Website binnenkort online',
       follow: 'Volg het avontuur',
       org: 'Georganiseerd door <strong>VZW Inkitrail</strong>'
     }
