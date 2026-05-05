@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trail des Awirs 2026</title>
+
+<!-- ============================================================
+     META DESCRIPTION
+     Ce texte apparaît sous le titre dans les résultats Google.
+     Il résume l'événement en ~155 caractères pour donner envie
+     de cliquer. Google peut le remplacer par un extrait
+     automatique, mais c'est notre version idéale.
+     ============================================================ -->
+<meta name="description" content="Trail des Awirs 2026 — 22 août, Flémalle. Trois parcours (6, 12, 21 km) sur les sentiers vallonnés des Awirs. Ambiance conviviale, bar et barbecue.">
+
+<!-- ============================================================
+     PRECONNECT — Connexions anticipées aux serveurs externes
+     Le navigateur établit la connexion TCP/TLS à l'avance,
+     avant même que la ressource soit demandée. Résultat :
+     les polices et la carte se chargent plus vite.
+     - fonts.googleapis.com  → serveur qui envoie les fichiers CSS des polices
+     - fonts.gstatic.com     → serveur qui envoie les fichiers de police réels
+     - unpkg.com             → CDN qui héberge la bibliothèque Leaflet (cartes)
+     - tile.openstreetmap.org → serveur des tuiles de la carte OpenStreetMap
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="preconnect" href="https://tile.openstreetmap.org">
+
+<!-- Polices Google Fonts chargées après les preconnect -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     OPEN GRAPH — Partage sur les réseaux sociaux (Facebook, LinkedIn…)
+     Quand quelqu'un partage le lien du site, ces balises
+     définissent ce qui s'affiche : titre, image, description.
+     Sans elles, Facebook choisit n'importe quel texte/image
+     de la page, souvent mal.
+     ============================================================ -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://glem4ire.github.io/trail-des-awirs/">
+<meta property="og:title"       content="Trail des Awirs 2026 — 22 août · Flémalle">
+<meta property="og:description" content="Trail des Awirs 2026 — 22 août, Flémalle. Trois parcours (6, 12, 21 km) sur les sentiers vallonnés des Awirs. Ambiance conviviale, bar et barbecue.">
+<!-- og:image : image affichée lors du partage (au moins 1200×630 px recommandé) -->
+<meta property="og:image"       content="https://glem4ire.github.io/trail-des-awirs/img/background.jpg">
+<meta property="og:locale"      content="fr_BE">
+<!-- Variante NL déclarée comme locale alternative -->
+<meta property="og:locale:alternate" content="nl_BE">
+<meta property="og:site_name"   content="Trail des Awirs">
+
+<!-- ============================================================
+     TWITTER CARD — Partage sur X (anciennement Twitter)
+     "summary_large_image" = grande image en haut de la carte,
+     idéal pour un visuel de nature/trail.
+     ============================================================ -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Trail des Awirs 2026 — 22 août · Flémalle">
+<meta name="twitter:description" content="Trail des Awirs 2026 — 22 août, Flémalle. Trois parcours (6, 12, 21 km) sur les sentiers vallonnés des Awirs. Ambiance conviviale, bar et barbecue.">
+<meta name="twitter:image"       content="https://glem4ire.github.io/trail-des-awirs/img/background.jpg">
+
+<!-- ============================================================
+     SCHEMA.ORG — Données structurées JSON-LD
+     Ce bloc de code est invisible pour les visiteurs, mais
+     les moteurs de recherche (Google, Bing…) le lisent pour
+     comprendre QUE la page est un événement sportif, OÙ et QUAND.
+     Résultat possible : un "rich result" dans Google — une fiche
+     événement enrichie avec date, lieu et lien d'inscription,
+     affichée directement dans les résultats de recherche.
+
+     Type utilisé : SportsEvent (sous-type d'Event)
+     Spécification : https://schema.org/SportsEvent
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+
+  "name": "Trail des Awirs 2026",
+  "description": "Trail des Awirs 2026 — 22 août, Flémalle. Trois parcours (6, 12, 21 km) sur les sentiers vallonnés et techniques des Awirs. Ambiance conviviale, bar et barbecue.",
+
+  "url": "https://glem4ire.github.io/trail-des-awirs/",
+
+  "image": "https://glem4ire.github.io/trail-des-awirs/img/background.jpg",
+
+  "startDate": "2026-08-22T15:00:00+02:00",
+  "endDate":   "2026-08-22T20:00:00+02:00",
+
+  "eventStatus": "https://schema.org/EventScheduled",
+
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+
+  "location": {
+    "@type": "Place",
+    "name": "Cercle St Joseph & Victor — Les Awirs",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress":   "Rue Jules Beaumont 1",
+      "addressLocality": "Les Awirs",
+      "addressRegion":   "Liège",
+      "postalCode":      "4400",
+      "addressCountry":  "BE"
+    }
+  },
+
+  "organizer": {
+    "@type": "Organization",
+    "name":  "ASBL Inkipit",
+    "email": "awirstrail@gmail.com",
+    "url":   "https://glem4ire.github.io/trail-des-awirs/"
+  },
+
+  "offers": {
+    "@type":       "Offer",
+    "url":         "https://otopservices.be",
+    "availability": "https://schema.org/InStock",
+    "validFrom":   "2026-01-01"
+  },
+
+  "sport": "Trail running",
+
+  "subEvent": [
+    {
+      "@type": "SportsEvent",
+      "name": "Trail des Awirs 2026 — 6 km",
+      "description": "Parcours Promenade / Débutant — 6 km, 144 m D+. Ouvert aux marcheurs et aux participants accompagnés de leur chien.",
+      "startDate": "2026-08-22T15:15:00+02:00"
+    },
+    {
+      "@type": "SportsEvent",
+      "name": "Trail des Awirs 2026 — 12 km",
+      "description": "Parcours Confirmé — 12 km, 220 m D+. Vallonné avec passages techniques.",
+      "startDate": "2026-08-22T15:15:00+02:00"
+    },
+    {
+      "@type": "SportsEvent",
+      "name": "Trail des Awirs 2026 — 21 km",
+      "description": "Parcours Expert — 21 km, 700 m D+. Long et technique, pour coureurs expérimentés.",
+      "startDate": "2026-08-22T15:00:00+02:00"
+    }
+  ]
+}
+</script>
+
+<!-- CSS de Leaflet : styles de la carte interactive (chargé depuis un CDN public) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation fixe en haut de page : logo à gauche, liens + bouton langue à droite -->
+<!-- aria-label="Navigation principale" permet aux lecteurs d'écran d'identifier ce bloc -->
+<nav aria-label="Navigation principale">
+  <!-- Logo SVG dans la nav — taille contrôlée via CSS (.nav-logo img) -->
+  <a href="#" class="nav-logo" aria-label="Trail des Awirs — retour en haut de page">
+    <img src="img/logo_tda.svg" alt="Trail des Awirs" class="nav-logo-img">
+  </a>
+  <div class="nav-right">
+    <!-- Liste des liens de navigation — cachée sur mobile, visible sur desktop -->
+    <ul class="nav-links">
+      <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
+      <li><a href="#horaires" data-i18n="nav.horaires">Horaires</a></li>
+      <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
+      <li><a href="https://otopservices.be" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.inscrire" data-soon data-i18n-tooltip="inscription.soon">S'inscrire</a></li>
+    </ul>
+    <!-- Bouton de bascule FR/NL — aria-label décrit l'action pour les lecteurs d'écran -->
+    <button class="lang-toggle" onclick="toggleLang()" aria-label="Changer de langue / Taal wisselen">NL</button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN — Contenu principal de la page
+     La balise <main> indique aux moteurs de recherche et aux
+     outils d'accessibilité (lecteurs d'écran, etc.) où se trouve
+     le contenu essentiel. Elle exclut la navigation et le footer.
+     Il ne doit y avoir qu'un seul <main> par page.
+     ============================================================ -->
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="topo-bg"></div>
+
+  <!-- Date de l'événement — le texte affiché vient de translations.js, pas d'ici -->
+  <p class="hero-date" data-i18n="hero.date">22 Août 2026</p>
+  <h1 class="hero-title" data-i18n="hero.title">TRAIL<br>DES<br>AWIRS</h1>
+  <p class="hero-sub" data-i18n="hero.sub">Un trail accessible et authentique au cœur des sentiers vallonnés et techniques des Awirs. Trois parcours, une ambiance chaleureuse, bar et barbecue pour finir.</p>
+  <div class="hero-actions">
+    <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
+    <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-primary" data-i18n="hero.btn.primary" data-soon data-i18n-tooltip="inscription.soon">S'inscrire maintenant</a>
+    <a href="#parcours" class="btn-secondary" data-i18n="hero.btn.secondary">Voir les parcours</a>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num" data-i18n="hero.stat.participants.num">+200</div>
+      <div class="hero-stat-label" data-i18n="hero.stat.participants">Participants</div>
+    </div>
+    <div>
+      <div class="hero-stat-num" data-i18n="hero.stat.parcours.num">3</div>
+      <div class="hero-stat-label" data-i18n="hero.stat.parcours">Parcours</div>
+    </div>
+    <div>
+      <div class="hero-stat-num" data-i18n="hero.stat.distance.num">21km</div>
+      <div class="hero-stat-label" data-i18n="hero.stat.distance">Max distance</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="topo-bg"></div>
+  <p class="section-label" data-i18n="parcours.label">Les parcours</p>
+  <h2 class="section-title" data-i18n="parcours.title">3 PARCOURS<br>POUR TOUS</h2>
+
+  <div class="parcours-grid">
+
+    <div class="parcours-card">
+      <!-- Visualisation GPX : carte (défaut) ou profil d'altitude -->
+      <div class="parcours-viz" data-parcours="0">
+        <div class="viz-tabs">
+          <button class="viz-tab viz-tab--active" data-viz="0" data-tab="map" data-i18n="viz.map">Carte</button>
+          <button class="viz-tab" data-viz="0" data-tab="elev" data-i18n="viz.elev">Profil</button>
+        </div>
+        <!-- La carte Leaflet sera injectée ici par gpx.js -->
+        <div id="viz-map-0" class="viz-map-container"></div>
+        <!-- Le profil SVG sera injecté ici à la demande -->
+        <div id="viz-elev-0" class="viz-elev-container"></div>
+      </div>
+
+      <div class="parcours-distance" data-i18n="parcours.01.distance">6 km</div>
+      <div class="parcours-nom" data-i18n="parcours.01.nom">Promenade · Débutant</div>
+      <p class="parcours-desc" data-i18n="parcours.01.desc">Un tracé simple et accessible, ouvert à tous y compris aux marcheurs et participants accompagnés de leur chien. Esprit convivial et familial.</p>
+      <div class="parcours-stats">
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
+          <span class="parcours-stat-val" data-i18n="parcours.01.denivele.val">144 m D+</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
+          <span class="parcours-stat-val" data-i18n="parcours.01.depart.val">15h15</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parcours-card">
+      <!-- Visualisation GPX : carte (défaut) ou profil d'altitude -->
+      <div class="parcours-viz" data-parcours="1">
+        <div class="viz-tabs">
+          <button class="viz-tab viz-tab--active" data-viz="1" data-tab="map" data-i18n="viz.map">Carte</button>
+          <button class="viz-tab" data-viz="1" data-tab="elev" data-i18n="viz.elev">Profil</button>
+        </div>
+        <div id="viz-map-1" class="viz-map-container"></div>
+        <div id="viz-elev-1" class="viz-elev-container"></div>
+      </div>
+
+      <div class="parcours-distance" data-i18n="parcours.02.distance">12 km</div>
+      <div class="parcours-nom" data-i18n="parcours.02.nom">Confirmé</div>
+      <p class="parcours-desc" data-i18n="parcours.02.desc">Un parcours vallonné avec un dénivelé marqué et quelques passages techniques. Idéal pour vivre une vraie expérience trail sur une distance stimulante.</p>
+      <div class="parcours-stats">
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
+          <span class="parcours-stat-val" data-i18n="parcours.02.denivele.val">220 m D+</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
+          <span class="parcours-stat-val" data-i18n="parcours.02.depart.val">15h15</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parcours-card">
+      <!-- Visualisation GPX : carte (défaut) ou profil d'altitude -->
+      <div class="parcours-viz" data-parcours="2">
+        <div class="viz-tabs">
+          <button class="viz-tab viz-tab--active" data-viz="2" data-tab="map" data-i18n="viz.map">Carte</button>
+          <button class="viz-tab" data-viz="2" data-tab="elev" data-i18n="viz.elev">Profil</button>
+        </div>
+        <div id="viz-map-2" class="viz-map-container"></div>
+        <div id="viz-elev-2" class="viz-elev-container"></div>
+      </div>
+
+      <div class="parcours-distance" data-i18n="parcours.03.distance">21 km</div>
+      <div class="parcours-nom" data-i18n="parcours.03.nom">Expert</div>
+      <p class="parcours-desc" data-i18n="parcours.03.desc">Un tracé long, technique et exigeant au cœur des reliefs des Awirs. Pour les coureurs en quête de dépassement sur des sentiers engagés et variés.</p>
+      <div class="parcours-stats">
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.denivele">Dénivelé</span>
+          <span class="parcours-stat-val" data-i18n="parcours.03.denivele.val">700 m D+</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.depart">Départ</span>
+          <span class="parcours-stat-val" data-i18n="parcours.03.depart.val">15h00</span>
+        </div>
+        <div class="parcours-stat">
+          <span class="parcours-stat-label" data-i18n="stat.ravitaillement">Ravitaillement</span>
+          <span class="parcours-stat-val" data-i18n="stat.ravitaillement.val">1 point</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<section id="horaires">
+  <div class="topo-bg"></div>
+  <p class="section-label" data-i18n="horaires.label">Programme de la journée</p>
+  <h2 class="section-title" data-i18n="horaires.title">HORAIRES</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time" data-i18n="horaires.13h.time">13h00</div>
+      <div class="timeline-event" data-i18n="horaires.13h">Ouverture<br>des inscriptions</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time" data-i18n="horaires.15h.time">15h00</div>
+      <div class="timeline-event" data-i18n="horaires.15h">Départ<br>21 km</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time" data-i18n="horaires.15h15.time">15h15</div>
+      <div class="timeline-event" data-i18n="horaires.15h15">Départ<br>12 km &amp; 6 km</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time" data-i18n="horaires.17h30.time">17h30</div>
+      <div class="timeline-event" data-i18n="horaires.17h30">Remise<br>des prix</div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE ORGANISATRICE -->
+<!-- Cette section présente l'équipe Inkipit et ses réseaux sociaux -->
+<section id="equipe">
+  <!-- Fond topographique SVG (même motif que les autres sections) -->
+  <div class="topo-bg"></div>
+
+  <!-- Label orange au-dessus du titre (petit texte indicatif) -->
+  <p class="section-label" data-i18n="equipe.label">L'ORGANISATION</p>
+
+  <!-- Titre principal de la section -->
+  <h2 class="section-title" data-i18n="equipe.title">INKIPIT</h2>
+
+  <!-- Contenu : photo à gauche, texte à droite sur desktop / empilé sur mobile -->
+  <div class="equipe-content">
+
+    <!-- BLOC PHOTO -->
+    <!-- loading="lazy" : le navigateur ne charge cette image que quand l'utilisateur
+         s'approche de cette zone en scrollant. Ça accélère le chargement initial
+         de la page, puisque cette photo n'est pas visible au premier coup d'œil. -->
+    <div class="equipe-photo">
+      <img src="img/equipe.jpg" alt="L'équipe Inkipit organisatrice du Trail des Awirs" loading="lazy">
+    </div>
+
+    <!-- BLOC TEXTE : description + boutons réseaux sociaux -->
+    <div class="equipe-text">
+
+      <!-- Texte de présentation de l'équipe Inkipit -->
+      <p class="equipe-desc" data-i18n="equipe.desc">Bastian, Sébastien, Nicolas et Guillaume — quatre passionnés de trail qui ont décidé de faire découvrir les Awirs comme terrain de jeu. Une première édition lancée avec le cœur.</p>
+
+      <!-- Liens vers les réseaux sociaux -->
+      <!-- TODO : remplacer les # par les vraies URLs quand disponibles -->
+      <div class="equipe-socials">
+        <a href="#" class="btn-social" data-i18n="equipe.facebook" target="_blank" rel="noopener">Suivez-nous sur Facebook</a>
+        <a href="#" class="btn-social" data-i18n="equipe.instagram" target="_blank" rel="noopener">Suivez-nous sur Instagram</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION CTA -->
+<!-- div.inscription-content regroupe le texte gauche pour aligner face au bouton sur desktop -->
+<section id="inscription">
+  <div class="inscription-content">
+    <p class="section-label" data-i18n="inscription.label">Rejoins l'aventure</p>
+    <h2 class="section-title" data-i18n="inscription.title">PRÊT·E<br>À COURIR&nbsp;?</h2>
+    <p data-i18n="inscription.text">Les inscriptions sont gérées par O'top Services. Pré-inscris-toi en ligne ou directement sur place dès 13h le jour de l'événement.</p>
+  </div>
+  <!-- rel="noopener" : sécurité pour les liens qui s'ouvrent dans un nouvel onglet -->
+  <a href="https://otopservices.be" target="_blank" rel="noopener" class="btn-dark" data-i18n="inscription.btn" data-soon data-i18n-tooltip="inscription.soon">S'inscrire sur O'top Services →</a>
+</section>
+
+</main>
+<!-- Fin du contenu principal — tout ce qui suit (footer) est hors de <main> -->
+
+<!-- FOOTER -->
+<footer>
+  <!-- Logo dans le footer -->
+  <!-- loading="lazy" : le footer est tout en bas de la page, donc le logo peut
+       être chargé en différé sans impacter l'expérience utilisateur. -->
+  <div class="footer-logo">
+    <img src="img/logo_tda.svg" alt="Trail des Awirs" class="footer-logo-img" loading="lazy">
+  </div>
+  <div class="footer-info" data-i18n="footer.info">
+    ASBL Inkipit — Contact : <a href="mailto:awirstrail@gmail.com">awirstrail@gmail.com</a>
+  </div>
+</footer>
+
+<!-- Leaflet JS : la bibliothèque de cartes interactives -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- gpx.js : notre script de visualisation GPX (doit venir après Leaflet) -->
+<script src="gpx.js"></script>
+<script src="translations.js"></script>
+
+</body>
+</html>
