@@ -3,3 +3,6 @@
 
 # Dossier de configuration VS Code (launch, settings locaux)
 .vscode/
+
+# Dossier Claude SEO (projet séparé, ne pas commiter)
+claude-seo/
