@@ -75,14 +75,14 @@
   /* Reset basique : enlève les marges et paddings par défaut du navigateur */
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body { height: 100%; }
+  html, body { min-height: 100%; }
 
   /* Style général de la page */
   body {
     background: var(--vert);
     color: var(--creme);
     font-family: 'DM Sans', sans-serif;
-    overflow: hidden;        /* empêche le scroll : la page tient dans la fenêtre */
+    overflow-y: auto;        /* scroll autorisé si le contenu dépasse la fenêtre */
     position: relative;
   }
 
@@ -161,9 +161,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 1.5rem 3rem;
+    padding: 2rem 1.5rem 2rem;   /* réduit : était 3rem top/bottom */
     text-align: center;
-    gap: 3rem;
+    gap: 1.5rem;                  /* réduit : était 3rem */
   }
 
   /* ─── BLOC CENTRAL : LOGO + DATE/LIEU + DISTANCES ─── */
@@ -171,15 +171,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.8rem;
+    gap: 1.8rem;          /* réduit : était 2.8rem */
     max-width: 720px;
-    margin-top: 2rem;
+    margin-top: 1rem;     /* réduit : était 2rem */
   }
 
   /* Logo principal — taille adaptative selon l'écran */
-  /* clamp(min, idéal, max) : entre 220 et 340 px, scale avec la fenêtre */
+  /* clamp(min, idéal, max) : entre 160 et 280 px, scale avec la fenêtre */
   .hero-logo {
-    width: clamp(220px, 32vw, 340px);
+    width: clamp(160px, 25vw, 280px);   /* réduit : était clamp(220px, 32vw, 340px) */
     height: auto;
     display: block;
   }
@@ -231,7 +231,7 @@
   /* Le grand chiffre (6, 12, 21) */
   .distance-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.2rem;
+    font-size: 2.6rem;   /* réduit : était 3.2rem */
     line-height: 1;
     color: var(--creme);
   }
@@ -258,7 +258,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.4rem;
+    gap: 1.4rem;          /* réduit : était 2.4rem */
     width: 100%;
     max-width: 720px;
   }
@@ -317,7 +317,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.75rem 1.3rem;
+    padding: 0.55rem 1rem;   /* réduit : était 0.75rem 1.3rem */
     border: 1px solid var(--creme-30);
     border-radius: 999px;
     color: var(--creme);
@@ -369,9 +369,10 @@
 
   /* ─── ADAPTATIONS MOBILE (écrans < 600px) ─── */
   @media (max-width: 600px) {
-    .distance { padding: 0 1rem; }              /* moins d'espace entre distances */
-    .distance-num { font-size: 2.4rem; }        /* chiffres un peu plus petits */
-    .meta { font-size: 1.4rem; gap: 0.4rem 1rem; }
+    .distance { padding: 0 0.8rem; }            /* moins d'espace entre distances */
+    .distance-num { font-size: 2rem; }          /* chiffres plus petits sur mobile */
+    .meta { font-size: 1.2rem; gap: 0.4rem 0.8rem; }
+    main { padding: 1.5rem 1rem; gap: 1rem; }
   }
 </style>
 </head>
@@ -445,7 +446,7 @@
 
     <!-- Email de contact + mention de l'organisateur -->
     <div class="meta-row">
-      <a href="/cdn-cgi/l/email-protection#b0d1c7d9c2c3c4c2d1d9dcf0d7ddd1d9dc9ed3dfdd" class="email-link"><span class="__cf_email__" data-cfemail="2445534d56575056454d48644349454d480a474b49">[email&#160;protected]</span></a>
+      <a href="mailto:awirstrail@gmail.com" class="email-link">awirstrail@gmail.com</a>
       <p class="org" data-i18n="org">Organisé par <strong>ASBL Inkitrail</strong></p>
     </div>
   </div>
@@ -459,7 +460,7 @@
   active si le visiteur revient.
   ============================================================
 -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Dictionnaire des traductions FR + NL
   const T = {
     fr: {
