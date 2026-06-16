@@ -229,32 +229,27 @@
     max-width: 720px;
   }
 
-  /* Statut « Inscriptions bientôt ouvertes » — texte simple avec point pulsé */
-  .status {
+  /* Bouton d'inscription : CTA orange plein, bien visible */
+  .cta-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.28em;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    background: var(--orange);          /* fond orange plein */
+    color: var(--vert);                 /* texte vert foncé pour le contraste */
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--creme-70);
-    font-weight: 500;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  /* Le petit point orange devant le texte du statut */
-  .status::before {
-    content: '';
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--orange);
-    box-shadow: 0 0 0 0 rgba(232,112,58,0.6);
-    animation: pulse 2s ease-out infinite;
-    flex-shrink: 0;
-  }
-  /* Animation du point : « onde » qui grossit puis disparaît */
-  @keyframes pulse {
-    0%   { box-shadow: 0 0 0 0   rgba(232,112,58,0.55); }
-    70%  { box-shadow: 0 0 0 12px rgba(232,112,58,0); }
-    100% { box-shadow: 0 0 0 0   rgba(232,112,58,0); }
+  /* Au survol : légèrement plus foncé + petit soulèvement */
+  .cta-btn:hover {
+    background: #d8602c;                 /* orange un peu plus foncé */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(232,112,58,0.35);
   }
 
   /* ─── RÉSEAUX SOCIAUX ─── */
@@ -369,8 +364,10 @@
     <!-- Texte d'accroche : annonce l'arrivée du site -->
     <p class="teaser" data-i18n="teaser">Le site complet arrive bientôt — parcours, horaires, inscriptions et tout ce qu'il faut savoir pour s'élancer sur les sentiers des Awirs.</p>
 
-    <!-- Statut : site bientôt en ligne, avec point pulsé -->
-    <span class="status" data-i18n="soon">Site bientôt en ligne</span>
+    <!-- Bouton d'inscription : renvoie vers le formulaire otop.be (nouvel onglet) -->
+    <a href="https://www.otop.be/traildesawirs/inscription/fiche"
+       target="_blank" rel="noopener"
+       class="cta-btn" data-i18n="register">S'inscrire</a>
   </div>
 
   <!-- BAS DE PAGE -->
@@ -416,7 +413,7 @@
       date: '22 Août 2026',
       place: 'Les Awirs · Flémalle',
       teaser: 'Le site complet arrive bientôt — parcours, horaires, inscriptions et tout ce qu\'il faut savoir pour s\'élancer sur les sentiers des Awirs.',
-      soon: 'Site bientôt en ligne',
+      register: 'S\'inscrire',
       follow: "Suivez l'aventure",
       org: 'Organisé par <strong>ASBL Inkitrail</strong>'
     },
@@ -424,7 +421,7 @@
       date: '22 Augustus 2026',
       place: 'Les Awirs · Flémalle',
       teaser: 'De volledige website komt binnenkort — parcours, tijdschema, inschrijvingen en alles wat je moet weten om de trails van Awirs te verkennen.',
-      soon: 'Website binnenkort online',
+      register: 'Inschrijven',
       follow: 'Volg het avontuur',
       org: 'Georganiseerd door <strong>VZW Inkitrail</strong>'
     }
